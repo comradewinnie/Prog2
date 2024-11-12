@@ -115,3 +115,11 @@ DELETE FROM Doctors WHERE doctorid > 4;
 SELECT name, surname, multiplier, (multiplier * 100) AS MultiplierX100
 FROM Doctors;
 ```
+
+## Add new calculated permanent column to the table
+```SQL
+ALTER TABLE Doctors 
+ADD COLUMN NewMultiplier DECIMAL;
+UPDATE Doctors
+SET NewMultiplier = Multiplier * 100;
+```
