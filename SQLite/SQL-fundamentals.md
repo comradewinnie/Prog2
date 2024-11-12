@@ -101,7 +101,7 @@ VALUES
   ('Jenifere', 'Pottere', 3.2);
 ```
 
-## Delete values from table by 'doctorid'
+## Delete records from table by 'doctorid'
 ```SQL
 DELETE FROM Doctors WHERE doctorid > 4;
 ```
