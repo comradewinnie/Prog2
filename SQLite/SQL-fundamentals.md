@@ -105,3 +105,9 @@ VALUES
 ```SQL
 DELETE FROM Doctors WHERE doctorid > 4;
 ```
+
+## Add new calculated column to the query
+```SQL
+  SELECT name, surname, multiplier, (multiplier * 100) AS MultiplierX100
+  FROM Doctors;
+```
