@@ -53,6 +53,10 @@ HAVING owner_count > 1
 WHERE -> SELECT, UPDATE, DELETE
 HAVING -> SELECT (only)
 
+## SQL Joins
+![image](https://github.com/user-attachments/assets/ba7b9527-0f6b-4eba-9bfd-0a2dc41d7215)
+
+
 ## Merge two tables by key
 ```SQL
 SELECT * FROM Sales
