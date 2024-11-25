@@ -35,4 +35,9 @@ CREATE TABLE Pasutijumi (
   Darbinieka_ID INTEGER,
   FOREIGN KEY (darbinieka_id) REFERENCES Darbinieki(id)
 );
+
+INSERT INTO Pasutijumi (summa, datums, apraksts, darbinieka_id) VALUES
+(249.99, '2024-04-01', 'Produkti atvēršanai', 2),
+(57.29, '2024-11-25', 'Degustācijai', 1),
+(643.21, '2024-02-11', 'Produkti aizvēršanai', 3);
 ```
