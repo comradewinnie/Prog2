@@ -1,13 +1,16 @@
 https://skolo.lv/mod/book/view.php?id=83627824&chapterid=351652
 ```SQL
-DROP TABLE Kafejnicas;
 CREATE TABLE Kafejnicas (
   ID INTEGER PRIMARY KEY AUTOINCREMENT,
   Nosaukums VARCHAR(32),
   Adrese VARCHAR(100)
 );
 
-DROP TABLE Darbinieki;
+INSERT INTO Kafejnicas (nosaukums, adrese) VALUES
+('Pie Jāņa', 'Brīvibas iela 10'),
+('Buločka', 'Graudu iela 13'),
+('Trīs graudi', 'Zemgales iela 29');
+
 CREATE TABLE Darbinieki (
   ID INTEGER PRIMARY KEY AUTOINCREMENT,
   Vards VARCHAR(32),
@@ -19,7 +22,11 @@ CREATE TABLE Darbinieki (
   FOREIGN KEY (kafejnicas_id) REFERENCES Kafejnicas(id)  
 );
 
-DROP TABLE Pasutijumi;
+INSERT INTO Darbinieki (vards, uzvards, talruna_numurs, amats, kafejnicas_id, atvalinajums) VALUES
+('Jānis', 'Bērziņš', '+37120000000', 'viesmīlis', 1, TRUE),
+('Viktors', 'Raskoļņikovs', '+37126756729', 'boss', 2, FALSE),
+('Viesturs', 'Liepiņš', '+37124726506', 'pāvars', 1, FALSE);
+
 CREATE TABLE Pasutijumi (
   ID INTEGER PRIMARY KEY AUTOINCREMENT,
   Summa REAL,
