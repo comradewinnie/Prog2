@@ -1,3 +1,4 @@
+```SQL
 DROP TABLE Kafejnicas;
 CREATE TABLE Kafejnicas (
   ID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,3 +27,4 @@ CREATE TABLE Pasutijumi (
   Darbinieka_ID INTEGER,
   FOREIGN KEY (darbinieka_id) REFERENCES Darbinieki(id)
 );
+```
