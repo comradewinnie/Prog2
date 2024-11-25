@@ -1,3 +1,4 @@
+https://skolo.lv/mod/book/view.php?id=83627824&chapterid=351652
 ```SQL
 DROP TABLE Kafejnicas;
 CREATE TABLE Kafejnicas (
