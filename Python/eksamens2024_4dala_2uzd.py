@@ -1,5 +1,5 @@
-https://skolo.lv/mod/book/view.php?id=83627824&chapterid=351661
-```py
+# Uzdevums: https://skolo.lv/mod/book/view.php?id=83627824&chapterid=351661
+
 import requests
 import sys
 
@@ -44,4 +44,3 @@ for country in countries:    # 8.uzd. Izvadīt informāciju par Latviju
     if country['name']['common'] == "Latvia":
         print(f"\nLatvijas apakšreģions: {country['subregion']}")
         print(f"Latvijas robežvalstu kodi: {country['borders']}")
-```
