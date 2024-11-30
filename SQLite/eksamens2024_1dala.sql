@@ -1,5 +1,5 @@
-https://skolo.lv/mod/book/view.php?id=83627824&chapterid=351652
-```SQL
+-- https://skolo.lv/mod/book/view.php?id=83627824&chapterid=351652
+
 CREATE TABLE Kafejnicas (
   ID INTEGER PRIMARY KEY AUTOINCREMENT,
   Nosaukums VARCHAR(32),
@@ -40,4 +40,3 @@ INSERT INTO Pasutijumi (summa, datums, apraksts, darbinieka_id) VALUES
 (249.99, '2024-04-01', 'Produkti atvēršanai', 2),
 (57.29, '2024-11-25', 'Degustācijai', 1),
 (643.21, '2024-02-11', 'Produkti aizvēršanai', 3);
-```
