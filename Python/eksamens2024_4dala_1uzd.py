@@ -1,6 +1,5 @@
-https://skolo.lv/mod/book/view.php?id=83627824&chapterid=351661
+# Uzdevums: https://skolo.lv/mod/book/view.php?id=83627824&chapterid=351661
 
-```py
 import urllib.request
 import csv
 
@@ -46,4 +45,3 @@ print("4.uzdevums:\n\n\n")
 lines_4 = sorted(lines_3, key=lambda x: x['NOSAUKUMS'].lower()) # Līnijas 4.uzdevumam
 for line in lines_4:
     print(f'{line["NOSAUKUMS"]};{line["ADRESE"]}')
-```
