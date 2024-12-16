@@ -1,6 +1,7 @@
 // Install NuGet packages: Microsoft.Data.Sqlite.Core, SQLitePCLRaw.bundle_e_sqlite3
 
 using System;
+using System.Threading;
 using Microsoft.Data.Sqlite;
 
 class Program
@@ -20,7 +21,7 @@ class Program
 				teslaCtrl.AddTesla("Model Y", "25.19", "0.50");
 				teslaCtrl.AddTesla("Model S", "17.81", "0.40");
 				
-				Console.WriteLine("Choose action: 'start', 'print', or 'exit'.");
+				Console.WriteLine("Choose action:\n'start' - start a ride,\n'stop' - stop the ride,\n'print' - show all available Teslas,\n'exit' - close the program.");
 				var userCommand = Console.ReadLine();
 				
 				switch (userCommand)
@@ -75,7 +76,6 @@ class Program
 						KilometerRate REAL NOT NULL
 						);";
 				createTableCmd.ExecuteNonQuery();
-				Console.WriteLine("Tesla table created or exists already.");
 			}
 		}
 		
@@ -94,7 +94,6 @@ class Program
 						Email TEXT NOT NULL
 						);";
 				createTableCmd.ExecuteNonQuery();
-				Console.WriteLine("Client table created or exists already.");
 			}
 		}
 
@@ -117,7 +116,6 @@ class Program
 	  					ClientID INTEGER NOT NULL
 						);";
 				createTableCmd.ExecuteNonQuery();
-				Console.WriteLine("Rent table created or exists already.");
 			}
 		}
 		
@@ -176,7 +174,6 @@ class Program
 				insertCmd.Parameters.AddWithValue("@kilometerrate", kilometerrate);
 
 				insertCmd.ExecuteNonQuery();
-				Console.WriteLine("Tesla is added to database.");
 			} 
 		}
 
@@ -238,16 +235,18 @@ class Program
 				
 				DateTime finishDate = DateTime.Now;
 				
-				double price = CalculateRentPrice(currentRentId, kilometersDriven, finishDate);
+				double durationInMinutes;
+        		double price = CalculateRentPrice(currentRentId, kilometersDriven, finishDate, out durationInMinutes);
 				
-				UpdateRent(currentRentId, finishDate, kilometersDriven, price);
+				UpdateRent(currentRentId, finishDate, kilometersDriven, price, durationInMinutes);
 								
             }
         }
 		
-		private double CalculateRentPrice(int rentId, double kilometersDriven, DateTime finishDate)
+		private double CalculateRentPrice(int rentId, double kilometersDriven, DateTime finishDate, out double durationInMinutes)
 		{
 			double price = 0;
+			durationInMinutes = 0;
 
 			using (var connection = new SqliteConnection(connectionString))
 			{
@@ -267,9 +266,12 @@ class Program
 						double hourlyRate = Convert.ToDouble(reader["HourlyRate"]);
 						double kilometerRate = Convert.ToDouble(reader["KilometerRate"]);
 
-						double durationInMinutes = (finishDate - startDate).TotalMinutes;
+						durationInMinutes = Math.Round((finishDate - startDate).TotalMinutes, 2);
 
 						price = (durationInMinutes / 60) * hourlyRate + kilometersDriven * kilometerRate;
+						Console.WriteLine($"Start Date: {startDate}");
+						Console.WriteLine($"Finish Date: {finishDate}");
+
 					}
 				}
 			}
@@ -277,7 +279,7 @@ class Program
 			return price;
 		}
 		
-		private void UpdateRent(int rentId, DateTime finishDate, double kilometersDriven, double price)
+		private void UpdateRent(int rentId, DateTime finishDate, double kilometersDriven, double price, double durationInMinutes)
 		{
 			using (var connection = new SqliteConnection(connectionString))
 			{
@@ -292,7 +294,7 @@ class Program
 				updateCmd.Parameters.AddWithValue("@rentId", rentId);
 
 				updateCmd.ExecuteNonQuery();
-				Console.WriteLine($"Rent stopped. Duration: {durationInMinutes}. Price: {price}");
+				Console.WriteLine($"Rent stopped. Duration: {durationInMinutes} min. Price: {price}.");
 			}
 		}
 		
