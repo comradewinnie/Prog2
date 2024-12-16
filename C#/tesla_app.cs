@@ -29,6 +29,9 @@ class Program
 						teslaCtrl.AddClient();
 						teslaCtrl.StartRent();
 						break;
+					case "stop":
+                        teslaCtrl.StopRent();
+                        break;
 					case "print":
 						teslaCtrl.PrintTeslas();
 						break;
@@ -47,6 +50,7 @@ class Program
 	{
 		private readonly string connectionString;
 		private int clientId;
+		private int currentRentId;
 		
 		public TeslaCtrl(string connectionString)
 		{
@@ -106,9 +110,10 @@ class Program
 						ID INTEGER PRIMARY KEY AUTOINCREMENT,
 						StartDate DATETIME NOT NULL,
 						FinishDate DATETIME,
+						DurationMinutes INTEGER,
 						Kilometers REAL,
-      						Price REAL,
-	    					CarID INTEGER NOT NULL,
+      					Price REAL,
+	    				CarID INTEGER NOT NULL,
 	  					ClientID INTEGER NOT NULL
 						);";
 				createTableCmd.ExecuteNonQuery();
@@ -198,9 +203,13 @@ class Program
 				insertCmd.Parameters.AddWithValue("@clientid", clientId);
 
 				insertCmd.ExecuteNonQuery();
-				Console.WriteLine("Rent is added to database.");
-
+				Console.WriteLine("Rent started.");
+				
 				var selectCmd = connection.CreateCommand();
+				
+				selectCmd.CommandText = "SELECT last_insert_rowid()";
+				currentRentId = Convert.ToInt32(selectCmd.ExecuteScalar());
+
 				selectCmd.CommandText = "SELECT * FROM Rents";
 
 				using (var reader = selectCmd.ExecuteReader())
@@ -212,6 +221,79 @@ class Program
 					}
 				}
 			} 
+		}
+		
+		public void StopRent()
+        {
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+
+                var selectCmd = connection.CreateCommand();
+                selectCmd.CommandText = "SELECT * FROM Rents WHERE ID = @rentId";
+                selectCmd.Parameters.AddWithValue("@rentId", currentRentId);
+
+				Console.WriteLine("Enter the kilometers driven during the rent:");
+				double kilometersDriven = Convert.ToDouble(Console.ReadLine());
+				
+				DateTime finishDate = DateTime.Now;
+				
+				double price = CalculateRentPrice(currentRentId, kilometersDriven, finishDate);
+				
+				UpdateRent(currentRentId, finishDate, kilometersDriven, price);
+								
+            }
+        }
+		
+		private double CalculateRentPrice(int rentId, double kilometersDriven, DateTime finishDate)
+		{
+			double price = 0;
+
+			using (var connection = new SqliteConnection(connectionString))
+			{
+				connection.Open();
+
+				
+				var selectCmd = connection.CreateCommand();
+				selectCmd.CommandText = "SELECT Rents.StartDate, Teslas.HourlyRate, Teslas.KilometerRate FROM Rents " +
+										"JOIN Teslas ON Rents.CarID = Teslas.ID WHERE Rents.ID = @rentId";
+				selectCmd.Parameters.AddWithValue("@rentId", rentId);
+
+				using (var reader = selectCmd.ExecuteReader())
+				{
+					if (reader.Read())
+					{
+						DateTime startDate = Convert.ToDateTime(reader["StartDate"]);
+						double hourlyRate = Convert.ToDouble(reader["HourlyRate"]);
+						double kilometerRate = Convert.ToDouble(reader["KilometerRate"]);
+
+						double durationInMinutes = (finishDate - startDate).TotalMinutes;
+
+						price = (durationInMinutes / 60) * hourlyRate + kilometersDriven * kilometerRate;
+					}
+				}
+			}
+			
+			return price;
+		}
+		
+		private void UpdateRent(int rentId, DateTime finishDate, double kilometersDriven, double price)
+		{
+			using (var connection = new SqliteConnection(connectionString))
+			{
+				connection.Open();
+
+				var updateCmd = connection.CreateCommand();
+				updateCmd.CommandText = "UPDATE Rents SET FinishDate = @finishDate, Kilometers = @kilometers, Price = @price " +
+										"WHERE ID = @rentId";
+				updateCmd.Parameters.AddWithValue("@finishDate", finishDate);
+				updateCmd.Parameters.AddWithValue("@kilometers", kilometersDriven);
+				updateCmd.Parameters.AddWithValue("@price", price);
+				updateCmd.Parameters.AddWithValue("@rentId", rentId);
+
+				updateCmd.ExecuteNonQuery();
+				Console.WriteLine($"Rent stopped. Duration: {durationInMinutes}. Price: {price}");
+			}
 		}
 		
 		public void PrintTeslas()
