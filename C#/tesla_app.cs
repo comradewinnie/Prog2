@@ -16,12 +16,16 @@ class Program
 			
 			while (true)
 			{
+				teslaCtrl.AddTesla("Model 3", "12.35", "0.30");
+				teslaCtrl.AddTesla("Model Y", "25.19", "0.50");
+				teslaCtrl.AddTesla("Model S", "17.81", "0.40");
+				
 				Console.WriteLine("Choose action: 'start', 'print', or 'exit'.");
 				var userCommand = Console.ReadLine();
 				
 				switch (userCommand)
 				{
-					case "add":
+					case "start":
 						teslaCtrl.AddClient();
 						break;
 					case "print":
@@ -60,8 +64,8 @@ class Program
 					@"CREATE TABLE IF NOT EXISTS Teslas (
 						ID INTEGER PRIMARY KEY AUTOINCREMENT,
 						Model TEXT NOT NULL,
-						Hourly rate REAL NOT NULL,
-						Kilometer rate REAL NOT NULL
+						HourlyRate REAL NOT NULL,
+						KilometerRate REAL NOT NULL
 						);";
 				createTableCmd.ExecuteNonQuery();
 				Console.WriteLine("Tesla table created or exists already.");
@@ -117,7 +121,30 @@ class Program
 				Console.WriteLine("Client is added to database.");
 			}
 		}
-				
+
+		public void AddTesla(string model, string hourlyrate, string kilometerrate)
+		{
+					
+			AddTeslaToTable(model, hourlyrate, kilometerrate);
+		}
+		
+		private void AddTeslaToTable(string model, string hourlyrate, string kilometerrate)
+		{
+			using (var connection = new SqliteConnection(connectionString))
+			{
+				connection.Open();
+			
+				var insertCmd = connection.CreateCommand();
+				insertCmd.CommandText = "INSERT INTO Teslas(Model, HourlyRate, KilometerRate) VALUES (@model, @hourlyrate, @kilometerrate)";
+				insertCmd.Parameters.AddWithValue("@model", model);
+				insertCmd.Parameters.AddWithValue("@hourlyrate", hourlyrate);
+				insertCmd.Parameters.AddWithValue("@kilometerrate", kilometerrate);
+
+				insertCmd.ExecuteNonQuery();
+				Console.WriteLine("Tesla is added to database.");
+			} 
+		}
+		
 		public void PrintTeslas()
 		{
 			using (var connection = new SqliteConnection(connectionString))
@@ -132,7 +159,7 @@ class Program
 					Console.WriteLine("Tesla List:");
 					while(reader.Read())
 					{
-						Console.WriteLine($"ID: {reader["ID"]}, model: {reader["Model"]}, price per hour: {reader["Hourly rate"]}, prcie per kilometer: {reader["Kilometer rate"]}.");
+						Console.WriteLine($"ID: {reader["ID"]}, model: {reader["Model"]}, price per hour: {reader["HourlyRate"]}, prcie per kilometer: {reader["KilometerRate"]}.");
 					}
 				}
 			}
