@@ -27,6 +27,7 @@ class Program
 				{
 					case "start":
 						teslaCtrl.AddClient();
+						teslaCtrl.StartRent();
 						break;
 					case "print":
 						teslaCtrl.PrintTeslas();
@@ -45,6 +46,7 @@ class Program
 	public class TeslaCtrl
 	{
 		private readonly string connectionString;
+		private int clientId;
 		
 		public TeslaCtrl(string connectionString)
 		{
@@ -127,7 +129,8 @@ class Program
 			
 			AddClientToTable(clientName, clientSurname, clientMail);
 		}
-		
+
+
 		private void AddClientToTable(string name, string surname, string mail)
 		{
 			using (var connection = new SqliteConnection(connectionString))
@@ -142,6 +145,10 @@ class Program
 
 				insertCmd.ExecuteNonQuery();
 				Console.WriteLine("Client is added to database.");
+				
+				var getIdCmd = connection.CreateCommand();
+				getIdCmd.CommandText = "SELECT last_insert_rowid()";
+				clientId = Convert.ToInt32(getIdCmd.ExecuteScalar());
 			}
 		}
 
@@ -172,25 +179,38 @@ class Program
 		{
 			Console.WriteLine("Enter the ID of the car you are selecting:");
 			int carId = Convert.ToInt32(Console.ReadLine());
-			PrintTeslas();
-			DateTime startDate = DateTime.Now;
-			//AddRentToTable(carId, startDate);
+			PrintTeslas();	
+			AddRentToTable(carId, clientId);
 		}
 
-		private void AddRentToTable(int carId, DateTime startDate)
+
+		
+		private void AddRentToTable(int carId, int clientId)
 		{
 			using (var connection = new SqliteConnection(connectionString))
 			{
-				/*connection.Open();
+				connection.Open();
 			
 				var insertCmd = connection.CreateCommand();
-				insertCmd.CommandText = "INSERT INTO Rents(StartDate, CarID, ClientID) VALUES (@model, @hourlyrate, @kilometerrate)";
-				insertCmd.Parameters.AddWithValue("@model", model);
-				insertCmd.Parameters.AddWithValue("@hourlyrate", hourlyrate);
-				insertCmd.Parameters.AddWithValue("@kilometerrate", kilometerrate);
+				insertCmd.CommandText = "INSERT INTO Rents(StartDate, CarID, ClientID) VALUES (@startdate, @carid, @clientid)";
+				insertCmd.Parameters.AddWithValue("@startdate", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+				insertCmd.Parameters.AddWithValue("@carid", carId);
+				insertCmd.Parameters.AddWithValue("@clientid", clientId);
 
 				insertCmd.ExecuteNonQuery();
-				Console.WriteLine("Tesla is added to database.");*/
+				Console.WriteLine("Rent is added to database.");
+
+				var selectCmd = connection.CreateCommand();
+				selectCmd.CommandText = "SELECT * FROM Rents";
+
+				using (var reader = selectCmd.ExecuteReader())
+				{				
+					Console.WriteLine("Rent List:");
+					while(reader.Read())
+					{
+						Console.WriteLine($"ID: {reader["ID"]}, start date: {reader["StartDate"]}, carID: {reader["CarID"]}, client id: {reader["ClientID"]}");
+					}
+				}
 			} 
 		}
 		
@@ -208,7 +228,7 @@ class Program
 					Console.WriteLine("Tesla List:");
 					while(reader.Read())
 					{
-						Console.WriteLine($"ID: {reader["ID"]}, model: {reader["Model"]}, price per hour: {reader["HourlyRate"]}, prcie per kilometer: {reader["KilometerRate"]}.");
+						Console.WriteLine($"ID: {reader["ID"]}, model: {reader["Model"]}, price per hour: {reader["HourlyRate"]}, price per kilometer: {reader["KilometerRate"]}.");
 					}
 				}
 			}
