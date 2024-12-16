@@ -51,6 +51,7 @@ class Program
 			this.connectionString = connectionString;
 			CreateTeslaTable();
 			CreateClientTable();
+			CreateRentTable();
 		}
 		
 		private void CreateTeslaTable()
@@ -88,6 +89,28 @@ class Program
 						);";
 				createTableCmd.ExecuteNonQuery();
 				Console.WriteLine("Client table created or exists already.");
+			}
+		}
+
+		private void CreateRentTable()
+		{
+			using (var connection = new SqliteConnection(connectionString))
+			{
+				connection.Open();
+				
+				var createTableCmd = connection.CreateCommand();
+				createTableCmd.CommandText = 
+					@"CREATE TABLE IF NOT EXISTS Rents (
+						ID INTEGER PRIMARY KEY AUTOINCREMENT,
+						StartDate DATETIME NOT NULL,
+						FinishDate DATETIME,
+						Kilometers REAL,
+      						Price REAL,
+	    					CarID INTEGER NOT NULL,
+	  					ClientID INTEGER NOT NULL
+						);";
+				createTableCmd.ExecuteNonQuery();
+				Console.WriteLine("Rent table created or exists already.");
 			}
 		}
 		
@@ -142,6 +165,32 @@ class Program
 
 				insertCmd.ExecuteNonQuery();
 				Console.WriteLine("Tesla is added to database.");
+			} 
+		}
+
+		public void StartRent()
+		{
+			Console.WriteLine("Enter the ID of the car you are selecting:");
+			int carId = Convert.ToInt32(Console.ReadLine());
+			PrintTeslas();
+			DateTime startDate = DateTime.Now;
+			//AddRentToTable(carId, startDate);
+		}
+
+		private void AddRentToTable(int carId, DateTime startDate)
+		{
+			using (var connection = new SqliteConnection(connectionString))
+			{
+				/*connection.Open();
+			
+				var insertCmd = connection.CreateCommand();
+				insertCmd.CommandText = "INSERT INTO Rents(StartDate, CarID, ClientID) VALUES (@model, @hourlyrate, @kilometerrate)";
+				insertCmd.Parameters.AddWithValue("@model", model);
+				insertCmd.Parameters.AddWithValue("@hourlyrate", hourlyrate);
+				insertCmd.Parameters.AddWithValue("@kilometerrate", kilometerrate);
+
+				insertCmd.ExecuteNonQuery();
+				Console.WriteLine("Tesla is added to database.");*/
 			} 
 		}
 		
