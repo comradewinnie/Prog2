@@ -1,33 +1,33 @@
 // Install NuGet packages: Microsoft.Data.Sqlite.Core, SQLitePCLRaw.bundle_e_sqlite3
 
 using System;
-using System.Threading;
 using Microsoft.Data.Sqlite;
 
 class Program
 {
     public static void Main()
     {
-		// Connection to database string SQLite
 		string connectionString = "Data Source=tesla.db";
 	
 		try 
 		{
+			Console.WriteLine("Welcome to the application of renting Tesla cars!");
 			var teslaCtrl = new TeslaCtrl(connectionString);
+			teslaCtrl.AddTesla("Model 3", "12.35", "0.30");
+			teslaCtrl.AddTesla("Model Y", "25.19", "0.50");
+			teslaCtrl.AddTesla("Model S", "17.81", "0.40");
 			
 			while (true)
 			{
-				teslaCtrl.AddTesla("Model 3", "12.35", "0.30");
-				teslaCtrl.AddTesla("Model Y", "25.19", "0.50");
-				teslaCtrl.AddTesla("Model S", "17.81", "0.40");
-				
-				Console.WriteLine("Choose action:\n'start' - start a ride,\n'stop' - stop the ride,\n'print' - show all available Teslas,\n'exit' - close the program.");
+				Console.WriteLine("Choose an action:\n'register' - register yourself,\n'start' - start a ride,\n'stop' - stop the ride,\n'print' - show all available Teslas,\n'exit' - close the program.");
 				var userCommand = Console.ReadLine();
 				
 				switch (userCommand)
 				{
-					case "start":
+					case "register":
 						teslaCtrl.AddClient();
+						break;
+					case "start":
 						teslaCtrl.StartRent();
 						break;
 					case "stop":
@@ -113,7 +113,9 @@ class Program
 						Kilometers REAL,
       					Price REAL,
 	    				CarID INTEGER NOT NULL,
-	  					ClientID INTEGER NOT NULL
+	  					ClientID INTEGER NOT NULL,
+						FOREIGN KEY (CarID) REFERENCES Teslas(ID),
+						FOREIGN KEY (ClientID) REFERENCES Clients(ID)
 						);";
 				createTableCmd.ExecuteNonQuery();
 			}
@@ -147,7 +149,6 @@ class Program
 				insertCmd.Parameters.AddWithValue("@mail", mail);
 
 				insertCmd.ExecuteNonQuery();
-				Console.WriteLine("Client is added to database.");
 				
 				var getIdCmd = connection.CreateCommand();
 				getIdCmd.CommandText = "SELECT last_insert_rowid()";
@@ -180,13 +181,11 @@ class Program
 		public void StartRent()
 		{
 			Console.WriteLine("Enter the ID of the car you are selecting:");
-			int carId = Convert.ToInt32(Console.ReadLine());
 			PrintTeslas();	
+			int carId = Convert.ToInt32(Console.ReadLine());
 			AddRentToTable(carId, clientId);
 		}
 
-
-		
 		private void AddRentToTable(int carId, int clientId)
 		{
 			using (var connection = new SqliteConnection(connectionString))
@@ -206,17 +205,6 @@ class Program
 				
 				selectCmd.CommandText = "SELECT last_insert_rowid()";
 				currentRentId = Convert.ToInt32(selectCmd.ExecuteScalar());
-
-				selectCmd.CommandText = "SELECT * FROM Rents";
-
-				using (var reader = selectCmd.ExecuteReader())
-				{				
-					Console.WriteLine("Rent List:");
-					while(reader.Read())
-					{
-						Console.WriteLine($"ID: {reader["ID"]}, start date: {reader["StartDate"]}, carID: {reader["CarID"]}, client id: {reader["ClientID"]}");
-					}
-				}
 			} 
 		}
 		
@@ -269,6 +257,8 @@ class Program
 						durationInMinutes = Math.Round((finishDate - startDate).TotalMinutes, 2);
 
 						price = (durationInMinutes / 60) * hourlyRate + kilometersDriven * kilometerRate;
+						price = Math.Round(price, 2);
+
 						Console.WriteLine($"Start Date: {startDate}");
 						Console.WriteLine($"Finish Date: {finishDate}");
 
@@ -286,15 +276,16 @@ class Program
 				connection.Open();
 
 				var updateCmd = connection.CreateCommand();
-				updateCmd.CommandText = "UPDATE Rents SET FinishDate = @finishDate, Kilometers = @kilometers, Price = @price " +
+				updateCmd.CommandText = "UPDATE Rents SET FinishDate = @finishDate, Kilometers = @kilometers, Price = @price, DurationMinutes = @duration " +
 										"WHERE ID = @rentId";
-				updateCmd.Parameters.AddWithValue("@finishDate", finishDate);
+				updateCmd.Parameters.AddWithValue("@finishDate", finishDate.ToString("yyyy-MM-dd HH:mm:ss"));
 				updateCmd.Parameters.AddWithValue("@kilometers", kilometersDriven);
 				updateCmd.Parameters.AddWithValue("@price", price);
+				updateCmd.Parameters.AddWithValue("@duration", durationInMinutes);
 				updateCmd.Parameters.AddWithValue("@rentId", rentId);
 
 				updateCmd.ExecuteNonQuery();
-				Console.WriteLine($"Rent stopped. Duration: {durationInMinutes} min. Price: {price}.");
+				Console.WriteLine($"Rent stopped. Duration: {durationInMinutes} min. Price: {price} EUR.");
 			}
 		}
 		
@@ -309,10 +300,9 @@ class Program
 
 				using (var reader = selectCmd.ExecuteReader())
 				{				
-					Console.WriteLine("Tesla List:");
 					while(reader.Read())
 					{
-						Console.WriteLine($"ID: {reader["ID"]}, model: {reader["Model"]}, price per hour: {reader["HourlyRate"]}, price per kilometer: {reader["KilometerRate"]}.");
+						Console.WriteLine($"ID: {reader["ID"]}, model: {reader["Model"]}, price per hour: {reader["HourlyRate"]} EUR, price per kilometer: {reader["KilometerRate"]} EUR.");
 					}
 				}
 			}
