@@ -111,8 +111,8 @@ class Program
 						FinishDate DATETIME,
 						DurationMinutes INTEGER,
 						Kilometers REAL,
-      					Price REAL,
-	    				CarID INTEGER NOT NULL,
+      						Price REAL,
+	    					CarID INTEGER NOT NULL,
 	  					ClientID INTEGER NOT NULL,
 						FOREIGN KEY (CarID) REFERENCES Teslas(ID),
 						FOREIGN KEY (ClientID) REFERENCES Clients(ID)
