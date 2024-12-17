@@ -200,6 +200,7 @@ class Program
 
 				insertCmd.ExecuteNonQuery();
 				Console.WriteLine("Rent started.");
+				Console.WriteLine($"Start Date: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
 				
 				var selectCmd = connection.CreateCommand();
 				
@@ -258,10 +259,6 @@ class Program
 
 						price = (durationInMinutes / 60) * hourlyRate + kilometersDriven * kilometerRate;
 						price = Math.Round(price, 2);
-
-						Console.WriteLine($"Start Date: {startDate}");
-						Console.WriteLine($"Finish Date: {finishDate}");
-
 					}
 				}
 			}
@@ -285,7 +282,7 @@ class Program
 				updateCmd.Parameters.AddWithValue("@rentId", rentId);
 
 				updateCmd.ExecuteNonQuery();
-				Console.WriteLine($"Rent stopped. Duration: {durationInMinutes} min. Price: {price} EUR.");
+				Console.WriteLine($"Rent stopped.\nFinish Date: {finishDate}.\nDuration: {durationInMinutes} min. Price: {price} EUR.");
 			}
 		}
 		
