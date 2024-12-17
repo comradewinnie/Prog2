@@ -210,27 +210,27 @@ class Program
 		}
 		
 		public void StopRent()
-        {
-            using (var connection = new SqliteConnection(connectionString))
-            {
-                connection.Open();
-
-                var selectCmd = connection.CreateCommand();
-                selectCmd.CommandText = "SELECT * FROM Rents WHERE ID = @rentId";
-                selectCmd.Parameters.AddWithValue("@rentId", currentRentId);
-
-				Console.WriteLine("Enter the kilometers driven during the rent:");
-				double kilometersDriven = Convert.ToDouble(Console.ReadLine());
-				
-				DateTime finishDate = DateTime.Now;
-				
-				double durationInMinutes;
-        		double price = CalculateRentPrice(currentRentId, kilometersDriven, finishDate, out durationInMinutes);
-				
-				UpdateRent(currentRentId, finishDate, kilometersDriven, price, durationInMinutes);
-								
-            }
-        }
+		{
+		    using (var connection = new SqliteConnection(connectionString))
+		    {
+			connection.Open();
+	
+			var selectCmd = connection.CreateCommand();
+			selectCmd.CommandText = "SELECT * FROM Rents WHERE ID = @rentId";
+			selectCmd.Parameters.AddWithValue("@rentId", currentRentId);
+	
+			Console.WriteLine("Enter the kilometers driven during the rent:");
+			double kilometersDriven = Convert.ToDouble(Console.ReadLine());
+			
+			DateTime finishDate = DateTime.Now;
+			
+			double durationInMinutes;
+			double price = CalculateRentPrice(currentRentId, kilometersDriven, finishDate, out durationInMinutes);
+			
+			UpdateRent(currentRentId, finishDate, kilometersDriven, price, durationInMinutes);
+									
+		    }
+		}
 		
 		private double CalculateRentPrice(int rentId, double kilometersDriven, DateTime finishDate, out double durationInMinutes)
 		{
