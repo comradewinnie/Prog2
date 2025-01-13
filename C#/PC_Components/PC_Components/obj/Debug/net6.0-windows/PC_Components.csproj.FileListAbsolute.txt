@@ -1,0 +1,16 @@
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\bin\Debug\net6.0-windows\PC_Components.exe
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\bin\Debug\net6.0-windows\PC_Components.deps.json
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\bin\Debug\net6.0-windows\PC_Components.runtimeconfig.json
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\bin\Debug\net6.0-windows\PC_Components.dll
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\bin\Debug\net6.0-windows\PC_Components.pdb
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\PC_Components.Form1.resources
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\PC_Components.csproj.GenerateResource.cache
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\PC_Components.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\PC_Components.AssemblyInfoInputs.cache
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\PC_Components.AssemblyInfo.cs
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\PC_Components.csproj.CoreCompileInputs.cache
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\PC_Components.dll
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\refint\PC_Components.dll
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\PC_Components.pdb
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\PC_Components.genruntimeconfig.cache
+C:\Users\skolnieks\source\repos\PC_Components\PC_Components\obj\Debug\net6.0-windows\ref\PC_Components.dll
