@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "W6xI+g+nkhELZjrb0FX5C3/ue0mgEF+mZC/Fs5++7kFXRl6yuzhoqlR0A9KyUVWOLkCLVvXOFdx/xmX1SMm/Pw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\skolnieks\\source\\repos\\Mebelu_veikals\\Mebelu_veikals\\Mebelu_veikals.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\skolnieks\\.nuget\\packages\\microsoft.data.sqlite\\9.0.0\\microsoft.data.sqlite.9.0.0.nupkg.sha512",
+    "C:\\Users\\skolnieks\\.nuget\\packages\\microsoft.data.sqlite.core\\9.0.0\\microsoft.data.sqlite.core.9.0.0.nupkg.sha512",
+    "C:\\Users\\skolnieks\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.10\\sqlitepclraw.bundle_e_sqlite3.2.1.10.nupkg.sha512",
+    "C:\\Users\\skolnieks\\.nuget\\packages\\sqlitepclraw.core\\2.1.10\\sqlitepclraw.core.2.1.10.nupkg.sha512",
+    "C:\\Users\\skolnieks\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.10\\sqlitepclraw.lib.e_sqlite3.2.1.10.nupkg.sha512",
+    "C:\\Users\\skolnieks\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.10\\sqlitepclraw.provider.e_sqlite3.2.1.10.nupkg.sha512",
+    "C:\\Users\\skolnieks\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}
