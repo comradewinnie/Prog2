@@ -1,0 +1,17 @@
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\bin\Debug\net7.0-windows\HangmanGame.exe
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\bin\Debug\net7.0-windows\HangmanGame.deps.json
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\bin\Debug\net7.0-windows\HangmanGame.runtimeconfig.json
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\bin\Debug\net7.0-windows\HangmanGame.dll
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\bin\Debug\net7.0-windows\HangmanGame.pdb
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\HangmanGame.Form1.resources
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\HangmanGame.Properties.Resources.resources
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\HangmanGame.csproj.GenerateResource.cache
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\HangmanGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\HangmanGame.AssemblyInfoInputs.cache
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\HangmanGame.AssemblyInfo.cs
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\HangmanGame.csproj.CoreCompileInputs.cache
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\HangmanGame.dll
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\refint\HangmanGame.dll
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\HangmanGame.pdb
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\HangmanGame.genruntimeconfig.cache
+C:\Users\skolnieks\source\repos\HangmanGame\HangmanGame\obj\Debug\net7.0-windows\ref\HangmanGame.dll
