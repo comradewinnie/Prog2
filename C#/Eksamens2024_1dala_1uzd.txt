@@ -1,0 +1,34 @@
+CREATE TABLE IF NOT EXISTS Kafejnicas (
+  ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Nosaukums TEXT,
+  Adrese TEXT);
+  
+CREATE TABLE IF NOT EXISTS Darbinieki (
+  ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Vards TEXT,
+  Uzvards TEXT,
+  TelefonaNumurs TEXT,
+  Amats TEXT,
+  KafejnicasNosaukums TEXT,
+  VaiIrAtvalinajuma BOOLEAN,
+  FOREIGN KEY (KafejnicasNosaukums) REFERENCES Kafejnicas(Nosaukums));
+  
+CREATE TABLE IF NOT EXISTS Pasutijumi (
+  ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Summa REAL,
+  Datums DATETIME,
+  Apraksts TEXT,
+  DarbiniekaUzvards TEXT,
+  FOREIGN KEY (DarbiniekaUzvards) REFERENCES Darbinieki(Uzvards));
+
+INSERT INTO Kafejnicas (Nosaukums, Adrese) VALUES ('Pie Jāņa', 'Brīvības iela 10');
+INSERT INTO Kafejnicas (Nosaukums, Adrese) VALUES ('Kafeee', 'Brīvības iela 22');
+INSERT INTO Kafejnicas (Nosaukums, Adrese) VALUES ('Kakao', 'Zemgales iela 121');
+
+INSERT INTO Darbinieki (Vards, Uzvards, TelefonaNumurs, Amats, KafejnicasNosaukums, VaiIrAtvalinajuma) VALUES ('Jānis', 'Bērziņš', '+37120000000', 'Viesmīlis', 'Pie Jāņa', '1');
+INSERT INTO Darbinieki (Vards, Uzvards, TelefonaNumurs, Amats, KafejnicasNosaukums, VaiIrAtvalinajuma) VALUES ('Viktors', 'Ivanovs', '+37120340600', 'Administators', 'Kafeee', '0');
+INSERT INTO Darbinieki (Vards, Uzvards, TelefonaNumurs, Amats, KafejnicasNosaukums, VaiIrAtvalinajuma) VALUES ('Aleksejs', 'Liepiņš', '+371203467000', 'Viesmīlis', 'Kakao', '1');
+
+INSERT INTO Pasutijumi (Summa, Apraksts, Datums, DarbiniekaUzvards) VALUES ('279.99', '01.01.2024', 'Produkti atvēršanai', 'Bērziņš');
+INSERT INTO Pasutijumi (Summa, Apraksts, Datums, DarbiniekaUzvards) VALUES ('219.99', '01.02.2024', 'Pasākumam', 'Ivanovs');
+INSERT INTO Pasutijumi (Summa, Apraksts, Datums, DarbiniekaUzvards) VALUES ('379.99', '01.03.2024', 'Parasts iepirkums', 'Liepiņš');
