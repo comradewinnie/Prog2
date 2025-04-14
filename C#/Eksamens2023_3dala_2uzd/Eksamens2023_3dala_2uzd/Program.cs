@@ -8,7 +8,7 @@ public class Program
         Kubs kubr = new Kubs(1, "sarkana");
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.WriteLine($"kubg krāsa: {kubg.KrasasNosaukums}.");
-        Console.WriteLine($"kubg tilpums: {kubg.AprekinatTilpumu()} cm^2.");
+        Console.WriteLine($"kubg tilpums: {kubg.AprekinatTilpumu()} cm^3.");
         Console.WriteLine($"kubr malas garums: {kubr.MalasGarums} cm.");
         Console.WriteLine($"kubg malas garums: {kubg.MalasGarums} cm.");
         kubr.Dispose();
@@ -42,7 +42,7 @@ public class Kubs : IDisposable
 
     public int AprekinatTilpumu()
     {
-        return MalasGarums * MalasGarums;
+        return MalasGarums * MalasGarums * MalasGarums;
     }
 
     public void Dispose()
