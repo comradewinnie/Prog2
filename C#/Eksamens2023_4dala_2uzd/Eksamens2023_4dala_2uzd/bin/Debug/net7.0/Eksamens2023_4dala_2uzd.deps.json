@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Eksamens2023_4dala_2uzd/1.0.0": {
+        "runtime": {
+          "Eksamens2023_4dala_2uzd.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Eksamens2023_4dala_2uzd/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

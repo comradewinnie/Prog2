@@ -1,0 +1,14 @@
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\bin\Debug\net7.0\Eksamens2023_4dala_2uzd.exe
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\bin\Debug\net7.0\Eksamens2023_4dala_2uzd.deps.json
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\bin\Debug\net7.0\Eksamens2023_4dala_2uzd.runtimeconfig.json
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\bin\Debug\net7.0\Eksamens2023_4dala_2uzd.dll
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\bin\Debug\net7.0\Eksamens2023_4dala_2uzd.pdb
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\obj\Debug\net7.0\Eksamens2023_4dala_2uzd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\obj\Debug\net7.0\Eksamens2023_4dala_2uzd.AssemblyInfoInputs.cache
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\obj\Debug\net7.0\Eksamens2023_4dala_2uzd.AssemblyInfo.cs
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\obj\Debug\net7.0\Eksamens2023_4dala_2uzd.csproj.CoreCompileInputs.cache
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\obj\Debug\net7.0\Eksamens2023_4dala_2uzd.dll
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\obj\Debug\net7.0\refint\Eksamens2023_4dala_2uzd.dll
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\obj\Debug\net7.0\Eksamens2023_4dala_2uzd.pdb
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\obj\Debug\net7.0\Eksamens2023_4dala_2uzd.genruntimeconfig.cache
+C:\Users\skolnieks\source\repos\Eksamens2023_4dala_2uzd\Eksamens2023_4dala_2uzd\obj\Debug\net7.0\ref\Eksamens2023_4dala_2uzd.dll
