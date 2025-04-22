@@ -1,0 +1,14 @@
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\bin\Debug\net7.0\Eksamens2024_3dala_1uzd.exe
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\bin\Debug\net7.0\Eksamens2024_3dala_1uzd.deps.json
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\bin\Debug\net7.0\Eksamens2024_3dala_1uzd.runtimeconfig.json
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\bin\Debug\net7.0\Eksamens2024_3dala_1uzd.dll
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\bin\Debug\net7.0\Eksamens2024_3dala_1uzd.pdb
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\obj\Debug\net7.0\Eksamens2024_3dala_1uzd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\obj\Debug\net7.0\Eksamens2024_3dala_1uzd.AssemblyInfoInputs.cache
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\obj\Debug\net7.0\Eksamens2024_3dala_1uzd.AssemblyInfo.cs
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\obj\Debug\net7.0\Eksamens2024_3dala_1uzd.csproj.CoreCompileInputs.cache
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\obj\Debug\net7.0\Eksamens2024_3dala_1uzd.dll
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\obj\Debug\net7.0\refint\Eksamens2024_3dala_1uzd.dll
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\obj\Debug\net7.0\Eksamens2024_3dala_1uzd.pdb
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\obj\Debug\net7.0\Eksamens2024_3dala_1uzd.genruntimeconfig.cache
+C:\Users\skolnieks\source\repos\Eksamens2024_3dala_1uzd\Eksamens2024_3dala_1uzd\obj\Debug\net7.0\ref\Eksamens2024_3dala_1uzd.dll
