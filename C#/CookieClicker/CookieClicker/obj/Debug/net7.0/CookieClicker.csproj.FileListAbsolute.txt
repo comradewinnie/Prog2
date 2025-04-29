@@ -1,0 +1,14 @@
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\bin\Debug\net7.0\CookieClicker.exe
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\bin\Debug\net7.0\CookieClicker.deps.json
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\bin\Debug\net7.0\CookieClicker.runtimeconfig.json
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\bin\Debug\net7.0\CookieClicker.dll
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\bin\Debug\net7.0\CookieClicker.pdb
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\obj\Debug\net7.0\CookieClicker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\obj\Debug\net7.0\CookieClicker.AssemblyInfoInputs.cache
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\obj\Debug\net7.0\CookieClicker.AssemblyInfo.cs
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\obj\Debug\net7.0\CookieClicker.csproj.CoreCompileInputs.cache
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\obj\Debug\net7.0\CookieClicker.dll
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\obj\Debug\net7.0\refint\CookieClicker.dll
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\obj\Debug\net7.0\CookieClicker.pdb
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\obj\Debug\net7.0\CookieClicker.genruntimeconfig.cache
+C:\Users\skolnieks\source\repos\CookieClicker\CookieClicker\obj\Debug\net7.0\ref\CookieClicker.dll
