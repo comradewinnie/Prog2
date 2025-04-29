@@ -1,0 +1,14 @@
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\bin\Debug\net8.0\Eksamens_4dala_1uzd.exe
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\bin\Debug\net8.0\Eksamens_4dala_1uzd.deps.json
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\bin\Debug\net8.0\Eksamens_4dala_1uzd.runtimeconfig.json
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\bin\Debug\net8.0\Eksamens_4dala_1uzd.dll
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\bin\Debug\net8.0\Eksamens_4dala_1uzd.pdb
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\obj\Debug\net8.0\Eksamens_4dala_1uzd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\obj\Debug\net8.0\Eksamens_4dala_1uzd.AssemblyInfoInputs.cache
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\obj\Debug\net8.0\Eksamens_4dala_1uzd.AssemblyInfo.cs
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\obj\Debug\net8.0\Eksamens_4dala_1uzd.csproj.CoreCompileInputs.cache
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\obj\Debug\net8.0\Eksamens_4dala_1uzd.dll
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\obj\Debug\net8.0\refint\Eksamens_4dala_1uzd.dll
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\obj\Debug\net8.0\Eksamens_4dala_1uzd.pdb
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\obj\Debug\net8.0\Eksamens_4dala_1uzd.genruntimeconfig.cache
+C:\Users\swod0\source\repos\Eksamens_4dala_1uzd\Eksamens_4dala_1uzd\obj\Debug\net8.0\ref\Eksamens_4dala_1uzd.dll
